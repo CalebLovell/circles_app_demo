@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext, AuthDispatchContext } from './providers/AuthProvider';
 import { AsyncStorage } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { MainStack } from './stacks/MainStack';
+import { Footer } from './Footer';
 import { AuthStack } from './stacks/AuthStack/AuthStack';
 import { LoadingScreen } from './stacks/SharedScreens/LoadingScreen';
 
@@ -32,6 +32,6 @@ export const Routes = () => {
 	if (loading) {
 		return <LoadingScreen size='large' />;
 	} else {
-		return <NavigationContainer>{user ? <MainStack /> : <AuthStack />}</NavigationContainer>;
+		return <NavigationContainer>{user ? <Footer /> : <AuthStack />}</NavigationContainer>;
 	}
 };

@@ -6,12 +6,7 @@ const Stack = createStackNavigator();
 
 export const GiftsStack = () => {
 	return (
-		<Stack.Navigator
-			screenOptions={{
-				header: () => null,
-			}}
-			initialRouteName='Gifts'
-		>
+		<Stack.Navigator>
 			<Stack.Screen name='Gifts' component={GiftsScreen} />
 		</Stack.Navigator>
 	);

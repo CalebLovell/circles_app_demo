@@ -6,12 +6,7 @@ const Stack = createStackNavigator();
 
 export const CalendarStack = () => {
 	return (
-		<Stack.Navigator
-			screenOptions={{
-				header: () => null,
-			}}
-			initialRouteName='Calendar'
-		>
+		<Stack.Navigator>
 			<Stack.Screen name='Calendar' component={CalendarScreen} />
 		</Stack.Navigator>
 	);
