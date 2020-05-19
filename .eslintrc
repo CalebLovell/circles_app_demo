@@ -124,10 +124,7 @@
 		],
 		"no-var": "error",
 		"object-curly-newline": [
-			"error",
-			{
-				"multiline": true
-			}
+			"always"
 		],
 		"object-curly-spacing": [
 			"error",
@@ -139,7 +136,7 @@
 		"prefer-template": "error",
 		"quotes": [
 			"error",
-			"single"
+			"backtick"
 		],
 		"semi": [
 			"error",
