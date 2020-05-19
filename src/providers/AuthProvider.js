@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
+import { AsyncStorage } from 'react-native';
 import { getUser, createUser, updateUser, deleteUser } from '../API';
 
 export const AuthContext = React.createContext();

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { ActivityIndicator } from 'react-native';
 import { AuthContext, AuthDispatchContext } from './providers/AuthProvider';
-import AsyncStorage from '@react-native-community/async-storage';
+import { AsyncStorage } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { MainStack } from './stacks/MainStack';
 import { AuthStack } from './stacks/AuthStack/AuthStack';
+import { LoadingScreen } from './stacks/SharedScreens/LoadingScreen';
 
 export const Routes = () => {
 	const { user } = useContext(AuthContext);
@@ -30,7 +30,7 @@ export const Routes = () => {
 	};
 
 	if (loading) {
-		return <ActivityIndicator size='large' />;
+		return <LoadingScreen size='large' />;
 	} else {
 		return <NavigationContainer>{user ? <MainStack /> : <AuthStack />}</NavigationContainer>;
 	}
