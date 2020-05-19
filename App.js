@@ -1,11 +1,11 @@
 import React from 'react';
-import { GlobalStateProvider } from './src/providers/GlobalStateProvider';
+import { AuthProvider } from './src/providers/AuthProvider';
 import { Routes } from './src/routes';
 
 export default function App() {
 	return (
-		<GlobalStateProvider>
+		<AuthProvider>
 			<Routes />
-		</GlobalStateProvider>
+		</AuthProvider>
 	);
 }

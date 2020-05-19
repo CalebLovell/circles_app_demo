@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import MainStack from './MainStack';
+import MainStack from '../stacks/MainStack';
 import { AuthStack } from './AuthStack/AuthStack';
 import AsyncStorage from '@react-native-community/async-storage';
-import { GlobalStateContext, GlobalStateDispatchContext } from './providers/GlobalStateProvider';
+import { AuthContext, AuthDispatchContext } from './providers/AuthProvider';
 
 export const Routes = () => {
-	const { user } = useContext(GlobalStateContext);
-	const dispatch = useContext(GlobalStateDispatchContext);
+	const { user } = useContext(AuthContext);
+	const dispatch = useContext(AuthDispatchContext);
 
 	const [loading, setLoading] = useState(true);
 
@@ -18,9 +18,9 @@ export const Routes = () => {
 
 	const checkForUser = async () => {
 		try {
-			const storedUser = await AsyncStorage.getItem(`user`);
+			const storedUser = await JSON.parse(AsyncStorage.getItem(`user`));
 			if (storedUser) {
-				dispatch({ type: `LOG_IN`, payload: JSON.parse(storedUser) });
+				dispatch({ type: `LOG_IN`, payload: storedUser });
 			}
 		} catch (error) {
 			console.log(error);
