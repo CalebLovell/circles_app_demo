@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 export const CirclesScreen = () => {
 	return (
 		<View>
-			<Text>Circle Stack</Text>
+			<Text>CirclesScreen</Text>
 		</View>
 	);
 };
