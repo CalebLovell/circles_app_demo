@@ -1,17 +1,17 @@
 import React from 'react';
 // Import Stack Navigators
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CirclesStack from '../stacks/CirclesStack/CirclesStack';
-import CalendarStack from './CalendarStack/CalendarStack';
-import ConnectionsStack from './ConnectionsStack/ConnectionsStack';
-import GiftsStack from './GiftsStack/GiftsStack';
+import { CirclesStack } from './CirclesStack/CircleStack';
+import { CalendarStack } from './CalendarStack/CalendarStack';
+import { ConnectionsStack } from './ConnectionsStack/ConnectionsStack';
+import { GiftsStack } from './GiftsStack/GiftsStack';
 // Import Icons
 import FAIcon from 'react-native-vector-icons/FontAwesome';
 import FoundationIcon from 'react-native-vector-icons/Foundation';
 
 const BottomTabNavigator = createBottomTabNavigator();
 
-export const MainStackWithBottomTabs = () => {
+export const MainStack = () => {
 	return (
 		<BottomTabNavigator.Navigator
 			screenOptions={({ route }) => ({

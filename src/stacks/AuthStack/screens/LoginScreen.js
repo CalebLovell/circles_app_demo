@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { Alert, StyleSheet, Text, TextInput, View, TouchableOpacity, Button } from 'react-native';
-import { AuthState, AuthDispatch } from '../../../providers/AuthProvider';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { AuthDispatch } from '../../../providers/AuthProvider';
 
 export const LoginScreen = ({ navigation }) => {
 	const [name, setname] = useState(``);

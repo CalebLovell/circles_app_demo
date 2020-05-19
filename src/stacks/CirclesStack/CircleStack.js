@@ -1,10 +1,18 @@
-import React, { useContext} from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import { CirclesScreen } from './screens/CirclesScreen';
 
-export const CircleStack = () => {
+import { createStackNavigator } from '@react-navigation/stack';
+const Stack = createStackNavigator();
+
+export const CirclesStack = () => {
 	return (
-		<View>
-			<Text>Circle Stack</Text>
-		</View>
-	)
-}
+		<Stack.Navigator
+			screenOptions={{
+				header: () => null,
+			}}
+			initialRouteName='Circles'
+		>
+			<Stack.Screen name='Circles' component={CirclesScreen} />
+		</Stack.Navigator>
+	);
+};

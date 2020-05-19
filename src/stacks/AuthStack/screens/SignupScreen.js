@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 import { AuthDispatch } from '../../../providers/AuthProvider';
 
 export const SignupScreen = ({ navigation }) => {
