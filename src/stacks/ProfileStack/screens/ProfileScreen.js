@@ -1,10 +1,18 @@
-import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import React, { useContext } from 'react';
+import { StyleSheet, View, Text, Button } from 'react-native';
+import { AuthContext, AuthDispatchContext } from '../../../providers/AuthProvider';
 
 export const ProfileScreen = () => {
+	const userContext = useContext(AuthContext);
+	const dispatchAuth = useContext(AuthDispatchContext);
+	console.log(`userContext`);
+	console.log(userContext);
 	return (
 		<View style={styles.screen}>
+			<Text>Welcome {userContext.name}!</Text>
+			<Text>{userContext.email}</Text>
 			<Text>ProfileScreen</Text>
+			<Button title='Log Out' onPress={() => dispatchAuth({ type: `LOG_OUT` })} />
 		</View>
 	);
 };

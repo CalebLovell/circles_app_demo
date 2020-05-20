@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 
-export const LoadingScreen = () => {
+export const SplashScreen = () => {
 	return (
 		<View style={styles.screen}>
 			<Text>

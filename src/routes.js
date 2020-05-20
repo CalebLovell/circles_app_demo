@@ -2,9 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext, AuthDispatchContext } from './providers/AuthProvider';
 import { AsyncStorage } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { Footer } from './Footer';
+import { MainNavigator } from './MainNavigator';
 import { AuthStack } from './stacks/AuthStack/AuthStack';
-import { LoadingScreen } from './stacks/SharedScreens/LoadingScreen';
+import { SplashScreen } from './stacks/SharedScreens/SplashScreen';
 
 export const Routes = () => {
 	const user = useContext(AuthContext);
@@ -19,6 +19,8 @@ export const Routes = () => {
 	const checkForUser = async () => {
 		try {
 			const oldUser = JSON.parse(await AsyncStorage.getItem(`user`));
+			console.log(`oldUser`);
+			console.log(oldUser);
 			if (oldUser) {
 				dispatchAuth({ type: `LOG_IN`, payload: oldUser });
 			}
@@ -30,8 +32,8 @@ export const Routes = () => {
 	};
 
 	if (loading) {
-		return <LoadingScreen size='large' />;
+		return <SplashScreen size='large' />;
 	} else {
-		return <NavigationContainer>{user ? <Footer /> : <AuthStack />}</NavigationContainer>;
+		return <NavigationContainer>{user ? <MainNavigator /> : <AuthStack />}</NavigationContainer>;
 	}
 };

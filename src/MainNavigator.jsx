@@ -12,7 +12,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const BottomTabs = createBottomTabNavigator();
 
-export const Footer = () => {
+export const MainNavigator = () => {
 	const deviceInfo = useContext(DeviceContext);
 
 	return (

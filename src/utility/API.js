@@ -2,7 +2,7 @@
 
 const url = new URL(`http://www.example.com`);
 
-export const getUser = async (body, headers) => {
+export const getUser = (body, headers) => {
 	// const response = await fetch(url, {
 	// 	method: `GET`,
 	// 	headers: headers,
