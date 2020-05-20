@@ -20,7 +20,6 @@ export const Footer = () => {
 			initialRouteName='Profile'
 			tabBarOptions={{
 				activeTintColor: deviceInfo.colorScheme.primaryColor,
-				size: 24,
 			}}
 		>
 			<BottomTabs.Screen
@@ -28,9 +27,7 @@ export const Footer = () => {
 				component={ProfileStack}
 				options={{
 					tabBarLabel: 'Profile',
-					tabBarIcon: ({ color, size }) => {
-						<Octicons name='person' size={size} color={color} />;
-					},
+					tabBarIcon: ({ color }) => <Octicons name='person' size={28} color={color} />,
 				}}
 			/>
 			<BottomTabs.Screen
@@ -38,9 +35,7 @@ export const Footer = () => {
 				component={CirclesStack}
 				options={{
 					tabBarLabel: 'Circles',
-					tabBarIcon: ({ color, size }) => {
-						<MaterialCommunityIcons name='google-circles-extended' size={size} color={color} />;
-					},
+					tabBarIcon: ({ color }) => <MaterialCommunityIcons name='google-circles-extended' size={28} color={color} />,
 				}}
 			/>
 			<BottomTabs.Screen
@@ -48,9 +43,7 @@ export const Footer = () => {
 				component={ConnectionsStack}
 				options={{
 					tabBarLabel: 'Connections',
-					tabBarIcon: ({ color, size }) => {
-						<Ionicons name='ios-people' size={size} color={color} />;
-					},
+					tabBarIcon: ({ color }) => <Ionicons name='ios-people' size={34} color={color} />,
 				}}
 			/>
 			<BottomTabs.Screen
@@ -58,11 +51,9 @@ export const Footer = () => {
 				component={CalendarStack}
 				options={{
 					tabBarLabel: 'Calendar',
-					tabBarIcon: ({ color, size }) => {
-						<Octicons name='calendar' size={size} color={color} />;
-					},
+					tabBarIcon: ({ color }) => <Octicons name='calendar' size={26} color={color} />,
 				}}
 			/>
 		</BottomTabs.Navigator>
 	);
-};
+}
