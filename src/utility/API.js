@@ -19,7 +19,6 @@ export const createUser = (body, headers) => {
 	// 	body: body,
 	// });
 	const response = body; // delete for real call
-	console.log(response)
 	return response;
 };
 

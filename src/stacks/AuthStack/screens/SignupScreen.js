@@ -14,9 +14,9 @@ export const SignupScreen = ({ navigation }) => {
 
 	const signup = async () => {
 		const newUser = {
-			name: name,
-			email: email,
-			password: password,
+			name,
+			email,
+			password,
 		};
 		dispatchAuth({ type: 'SIGN_UP', payload: newUser });
 	};

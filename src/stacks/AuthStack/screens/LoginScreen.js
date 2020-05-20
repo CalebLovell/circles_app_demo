@@ -1,39 +1,75 @@
 import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 import { AuthDispatchContext } from '../../../providers/AuthProvider';
+import { DeviceContext } from '../../../providers/DeviceProvider';
 
 export const LoginScreen = ({ navigation }) => {
-	const [name, setname] = useState(``);
-	const [email, setemail] = useState(``);
-	const [password, setpassword] = useState(``);
-	const [confirmpassword, setconfirmpassword] = useState(``);
+	const [name, setName] = useState(``);
+	const [email, setEmail] = useState(``);
+	const [password, setPassword] = useState(``);
 
 	const dispatchAuth = useContext(AuthDispatchContext);
+	const deviceInfo = useContext(DeviceContext);
 
 	const login = () => {
-		fakeUser = {
-			name: `Caleb Lovell`,
-			email: `caleblovell1@gmail.com`,
-			number: `(262) 349-5921`,
+		const existingUser = {
+			name,
+			email,
+			password,
 		};
-		dispatchAuth({ type: 'LOG_IN', payload: fakeUser });
+		dispatchAuth({ type: 'LOG_IN', payload: existingUser });
 	};
 
 	return (
 		<View style={styles.screen}>
-			<Text style={styles.text}>Login</Text>
-			<TextInput style={styles.input} onChangeText={t => setname(t)} value={name} />
-			<TextInput style={styles.input} onChangeText={t => setemail(t)} value={email} />
-			<TextInput style={styles.input} onChangeText={t => setpassword(t)} value={password} />
-			<TextInput style={styles.input} onChangeText={t => setconfirmpassword(t)} value={confirmpassword} />
-			<TouchableOpacity style={styles.button} onPress={login} />
-			<Text style={styles.text}>Don't have an account?</Text>
-			<TouchableOpacity style={styles.button} onPress={navigation.navigate(`Signup`)} />
+			<View></View>
+			<View style={styles.form}>
+				<Text style={[styles.title, { color: deviceInfo.colorScheme.primaryColor }]}>Login</Text>
+				<TextInput style={styles.input} onChangeText={t => setName(t)} value={name} placeholder={`Name`} />
+				<TextInput style={styles.input} onChangeText={t => setEmail(t)} value={email} placeholder={`Email`} />
+				<TextInput style={styles.input} onChangeText={t => setPassword(t)} value={password} placeholder={`Password`} />
+				<TouchableOpacity style={[styles.button, { backgroundColor: deviceInfo.colorScheme.primaryColor }]} onPress={login}>
+					<Text style={[styles.text, { color: deviceInfo.colorScheme.secondaryColor }]}>Submit</Text>
+				</TouchableOpacity>
+			</View>
+			<Text style={[styles.text, { color: deviceInfo.colorScheme.primaryColor, marginBottom: 20 }]} onPress={() => navigation.navigate(`Signup`)}>
+				Don't have an account?
+			</Text>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
-	screen: {},
-	input: {},
+	screen: {
+		flex: 1,
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	form: {
+		width: '80%',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	title: {
+		fontSize: 34,
+		marginBottom: 10,
+	},
+	text: {
+		fontSize: 18,
+	},
+	input: {
+		height: 40,
+		width: '100%',
+		marginBottom: 10,
+		borderColor: 'gray',
+		borderWidth: 1,
+	},
+	button: {
+		height: 40,
+		width: 100,
+		borderRadius: 20,
+		justifyContent: 'center',
+		alignItems: 'center',
+		alignSelf: 'flex-end',
+	},
 });
