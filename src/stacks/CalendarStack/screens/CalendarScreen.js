@@ -4,7 +4,7 @@ import { StyleSheet, View, Text } from 'react-native';
 export const CalendarScreen = () => {
 	return (
 		<View style={styles.screen}>
-			<Text>CalendarScreen</Text>
+			<Text>Calendar Screen</Text>
 		</View>
 	);
 };

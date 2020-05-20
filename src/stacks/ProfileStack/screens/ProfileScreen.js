@@ -7,9 +7,9 @@ export const ProfileScreen = () => {
 	const dispatchAuth = useContext(AuthDispatchContext);
 	return (
 		<View style={styles.screen}>
+			<Text>Profile Screen</Text>
 			<Text>Welcome {userContext.name}!</Text>
-			<Text>{userContext.email}</Text>
-			<Text>ProfileScreen</Text>
+			<Text>Your email is {userContext.email}</Text>
 			<Button title='Log Out' onPress={() => dispatchAuth({ type: `LOG_OUT` })} />
 		</View>
 	);

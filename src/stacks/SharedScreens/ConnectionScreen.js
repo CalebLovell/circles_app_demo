@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
-export const ConnectionScreen = () => {
+export const ConnectionScreen = ({ navigation }) => {
 	return (
 		<View style={styles.screen}>
-			<Text>ConnectionScreen</Text>
+			<Text>Connection Screen</Text>
+			<Button title='Go to Circle Screen' onPress={() => navigation.navigate(`Circle`)} />
+			<Button title='Go to Connection Screen' onPress={() => navigation.navigate(`Connection`)} />
 		</View>
 	);
 };
