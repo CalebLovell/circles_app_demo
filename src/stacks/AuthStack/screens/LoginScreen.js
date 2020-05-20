@@ -8,7 +8,7 @@ export const LoginScreen = ({ navigation }) => {
 	const [password, setpassword] = useState(``);
 	const [confirmpassword, setconfirmpassword] = useState(``);
 
-	const dispatchUser = useContext(AuthDispatchContext);
+	const dispatchAuth = useContext(AuthDispatchContext);
 
 	const login = () => {
 		fakeUser = {
@@ -16,7 +16,7 @@ export const LoginScreen = ({ navigation }) => {
 			email: `caleblovell1@gmail.com`,
 			number: `(262) 349-5921`,
 		};
-		dispatchUser({ type: 'LOG_IN', payload: fakeUser });
+		dispatchAuth({ type: 'LOG_IN', payload: fakeUser });
 	};
 
 	return (

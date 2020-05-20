@@ -7,8 +7,8 @@ import { AuthStack } from './stacks/AuthStack/AuthStack';
 import { LoadingScreen } from './stacks/SharedScreens/LoadingScreen';
 
 export const Routes = () => {
-	const { user } = useContext(AuthContext);
-	const dispatch = useContext(AuthDispatchContext);
+	const user = useContext(AuthContext);
+	const dispatchAuth = useContext(AuthDispatchContext);
 
 	const [loading, setLoading] = useState(true);
 
@@ -17,11 +17,10 @@ export const Routes = () => {
 	}, []);
 
 	const checkForUser = async () => {
-		async try {
-			const storedUser = await AsyncStorage.getItem(`user`);
-			console.log(storedUser);
-			if (storedUser) {
-				dispatch({ type: `LOG_IN`, payload: storedUser });
+		try {
+			const oldUser = JSON.parse(await AsyncStorage.getItem(`user`));
+			if (oldUser) {
+				dispatchAuth({ type: `LOG_IN`, payload: oldUser });
 			}
 		} catch (error) {
 			console.log(error);

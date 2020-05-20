@@ -9,7 +9,7 @@ export const SignupScreen = ({ navigation }) => {
 	const [password, setPassword] = useState(``);
 	const [confirmPassword, setConfirmPassword] = useState(``);
 
-	const dispatchUser = useContext(AuthDispatchContext);
+	const dispatchAuth = useContext(AuthDispatchContext);
 	const deviceInfo = useContext(DeviceContext);
 
 	const signup = async () => {
@@ -18,8 +18,7 @@ export const SignupScreen = ({ navigation }) => {
 			email: email,
 			password: password,
 		};
-		const user = await dispatchUser({ type: 'SIGN_UP', payload: newUser });
-		if (user.name && user.email) navigation.navigate(`Login`);
+		dispatchAuth({ type: 'SIGN_UP', payload: newUser });
 	};
 
 	return (

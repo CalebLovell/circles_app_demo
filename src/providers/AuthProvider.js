@@ -1,27 +1,23 @@
 import React, { useReducer } from 'react';
 import { AsyncStorage } from 'react-native';
-import { getUser, createUser, updateUser, deleteUser } from '../utility/API';
+import { getUser, createUser } from '../utility/API';
 
 export const AuthContext = React.createContext();
 export const AuthDispatchContext = React.createContext();
 
-const initialState = {
-	name: ``,
-	email: ``,
-};
+const initialState = null;
 
 const reducer = (state, action) => {
 	switch (action.type) {
 		case `SIGN_UP`: {
-			// const newUser = getUser(action.payload);
-			newUser = action.payload;
+			const newUser = createUser(action.payload);
 			AsyncStorage.setItem(`user`, JSON.stringify(newUser));
 			return (state = newUser);
 		}
 		case `LOG_IN`: {
-			const fakeUser = getUser(action.payload);
-			AsyncStorage.setItem(`user`, JSON.stringify(fakeUser));
-			return (state = fakeUser);
+			const user = getUser(action.payload);
+			AsyncStorage.setItem(`user`, JSON.stringify(user));
+			return (state = user);
 		}
 		case `LOG_OUT`: {
 			AsyncStorage.removeItem(`user`);
