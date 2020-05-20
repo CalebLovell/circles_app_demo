@@ -17,8 +17,6 @@ export const LoginScreen = ({ navigation }) => {
 			email,
 			password,
 		};
-		console.log(`existingUser`);
-		console.log(existingUser);
 		dispatchAuth({ type: 'LOG_IN', payload: existingUser });
 	};
 

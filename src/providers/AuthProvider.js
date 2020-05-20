@@ -16,8 +16,6 @@ const reducer = (state, action) => {
 		}
 		case `LOG_IN`: {
 			const user = getUser(action.payload);
-			console.log(`user`)
-			console.log(user)
 			AsyncStorage.setItem(`user`, JSON.stringify(user));
 			return (state = user);
 		}

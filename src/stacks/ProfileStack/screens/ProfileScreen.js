@@ -5,8 +5,6 @@ import { AuthContext, AuthDispatchContext } from '../../../providers/AuthProvide
 export const ProfileScreen = () => {
 	const userContext = useContext(AuthContext);
 	const dispatchAuth = useContext(AuthDispatchContext);
-	console.log(`userContext`);
-	console.log(userContext);
 	return (
 		<View style={styles.screen}>
 			<Text>Welcome {userContext.name}!</Text>
