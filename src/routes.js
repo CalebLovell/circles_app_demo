@@ -17,8 +17,9 @@ export const Routes = () => {
 	}, []);
 
 	const checkForUser = async () => {
-		try {
-			const storedUser = await JSON.parse(AsyncStorage.getItem(`user`));
+		async try {
+			const storedUser = await AsyncStorage.getItem(`user`);
+			console.log(storedUser);
 			if (storedUser) {
 				dispatch({ type: `LOG_IN`, payload: storedUser });
 			}

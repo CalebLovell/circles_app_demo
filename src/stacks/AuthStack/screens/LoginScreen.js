@@ -20,7 +20,7 @@ export const LoginScreen = ({ navigation }) => {
 	};
 
 	return (
-		<View style={styles.container}>
+		<View style={styles.screen}>
 			<Text style={styles.text}>Login</Text>
 			<TextInput style={styles.input} onChangeText={t => setname(t)} value={name} />
 			<TextInput style={styles.input} onChangeText={t => setemail(t)} value={email} />
@@ -34,6 +34,6 @@ export const LoginScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-	container: {},
+	screen: {},
 	input: {},
 });

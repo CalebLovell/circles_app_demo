@@ -5,6 +5,6 @@ export const ColorScheme = {
 	},
 	darkMode: {
 		primaryColor: '#22b8fb',
-		secondaryColor: '#000',
+		secondaryColor: '#fff',
 	},
 };

@@ -7,9 +7,13 @@ const Stack = createStackNavigator();
 
 export const AuthStack = () => {
 	return (
-		<Stack.Navigator>
-			<Stack.Screen name='Login' component={LoginScreen} />
+		<Stack.Navigator
+			screenOptions={({ route }) => ({
+				header: () => null,
+			})}
+		>
 			<Stack.Screen name='Signup' component={SignupScreen} />
+			<Stack.Screen name='Login' component={LoginScreen} />
 		</Stack.Navigator>
 	);
 };

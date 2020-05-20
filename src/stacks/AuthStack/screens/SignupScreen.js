@@ -1,57 +1,78 @@
 import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 import { AuthDispatchContext } from '../../../providers/AuthProvider';
+import { DeviceContext } from '../../../providers/DeviceProvider';
 
 export const SignupScreen = ({ navigation }) => {
-	const [name, setname] = useState(``);
-	const [email, setemail] = useState(``);
-	const [password, setpassword] = useState(``);
-	const [confirmpassword, setconfirmpassword] = useState(``);
+	const [name, setName] = useState(``);
+	const [email, setEmail] = useState(``);
+	const [password, setPassword] = useState(``);
+	const [confirmPassword, setConfirmPassword] = useState(``);
 
 	const dispatchUser = useContext(AuthDispatchContext);
+	const deviceInfo = useContext(DeviceContext);
 
-	const signup = () => {
+	const signup = async () => {
 		const newUser = {
 			name: name,
 			email: email,
-			number: password,
+			password: password,
 		};
-		const user = dispatchUser({ type: 'SIGN_UP', payload: newUser });
+		const user = await dispatchUser({ type: 'SIGN_UP', payload: newUser });
 		if (user.name && user.email) navigation.navigate(`Login`);
 	};
 
 	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>Sign Up</Text>
-			<TextInput style={styles.input} onChangeText={t => setname(t)} value={name} />
-			<TextInput style={styles.input} onChangeText={t => setemail(t)} value={email} />
-			<TextInput style={styles.input} onChangeText={t => setpassword(t)} value={password} />
-			<TextInput style={styles.input} onChangeText={t => setconfirmpassword(t)} value={confirmpassword} />
-			<TouchableOpacity style={styles.button} onPress={signup} />
-			<Text style={styles.text}>Already have an account?</Text>
-			<Text style={styles.text} onPress={navigation.navigate(`Login`)} />
+		<View style={styles.screen}>
+			<View></View>
+			<View style={styles.form}>
+				<Text style={[styles.title, { color: deviceInfo.colorScheme.primaryColor }]}>Sign Up</Text>
+				<TextInput style={styles.input} onChangeText={t => setName(t)} value={name} placeholder={`Name`} />
+				<TextInput style={styles.input} onChangeText={t => setEmail(t)} value={email} placeholder={`Email`} />
+				<TextInput style={styles.input} onChangeText={t => setPassword(t)} value={password} placeholder={`Password`} />
+				<TextInput style={styles.input} onChangeText={t => setConfirmPassword(t)} value={confirmPassword} placeholder={`Confirm Password`} />
+				<TouchableOpacity style={[styles.button, { backgroundColor: deviceInfo.colorScheme.primaryColor }]} onPress={signup}>
+					<Text style={[styles.text, { color: deviceInfo.colorScheme.secondaryColor }]}>Submit</Text>
+				</TouchableOpacity>
+			</View>
+			<Text style={[styles.text, { color: deviceInfo.colorScheme.primaryColor, marginBottom: 20 }]} onPress={() => navigation.navigate(`Login`)}>
+				Already have an account?
+			</Text>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
-	container: {
+	screen: {
 		flex: 1,
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	form: {
+		width: '80%',
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
-	text: {
-		fontSize: 24,
-		color: 'red',
+	title: {
+		fontSize: 34,
+		marginBottom: 10,
 	},
 	text: {
-		fontSize: 24,
-		color: 'red',
+		fontSize: 18,
 	},
-	input: {},
+	input: {
+		height: 40,
+		width: '100%',
+		marginBottom: 10,
+		borderColor: 'gray',
+		borderWidth: 1,
+	},
 	button: {
-		height: 20,
+		height: 40,
 		width: 100,
-		backgroundColor: 'red',
+		borderRadius: 20,
+		justifyContent: 'center',
+		alignItems: 'center',
+		alignSelf: 'flex-end',
 	},
 });

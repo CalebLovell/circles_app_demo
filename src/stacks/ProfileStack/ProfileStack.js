@@ -1,13 +1,13 @@
 import React from 'react';
-import { GiftsScreen } from './screens/GiftsScreen';
+import { ProfileScreen } from '../ProfileStack/screens/ProfileScreen';
 
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
-export const GiftsStack = () => {
+export const ProfileStack = () => {
 	return (
 		<Stack.Navigator>
-			<Stack.Screen name='Gifts' component={GiftsScreen} />
+			<Stack.Screen name='Profile' component={ProfileScreen} />
 		</Stack.Navigator>
 	);
 };
