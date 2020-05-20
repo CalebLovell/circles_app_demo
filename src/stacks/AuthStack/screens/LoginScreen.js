@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
-import { AuthDispatch } from '../../../providers/AuthProvider';
+import { AuthDispatchContext } from '../../../providers/AuthProvider';
 
 export const LoginScreen = ({ navigation }) => {
 	const [name, setname] = useState(``);
@@ -8,7 +8,7 @@ export const LoginScreen = ({ navigation }) => {
 	const [password, setpassword] = useState(``);
 	const [confirmpassword, setconfirmpassword] = useState(``);
 
-	const dispatchUser = useContext(AuthDispatch);
+	const dispatchUser = useContext(AuthDispatchContext);
 
 	const login = () => {
 		fakeUser = {
