@@ -9,6 +9,7 @@ import { DeviceContext } from './providers/DeviceProvider';
 import { Octicons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -23,14 +24,6 @@ export const MainNavigator = () => {
 			}}
 		>
 			<BottomTabs.Screen
-				name='Profile'
-				component={ProfileStack}
-				options={{
-					tabBarLabel: 'Profile',
-					tabBarIcon: ({ color }) => <Octicons name='person' size={28} color={color} />,
-				}}
-			/>
-			<BottomTabs.Screen
 				name='Circles'
 				component={CirclesStack}
 				options={{
@@ -38,12 +31,21 @@ export const MainNavigator = () => {
 					tabBarIcon: ({ color }) => <MaterialCommunityIcons name='google-circles-extended' size={28} color={color} />,
 				}}
 			/>
+
 			<BottomTabs.Screen
 				name='Connections'
 				component={ConnectionsStack}
 				options={{
 					tabBarLabel: 'Connections',
 					tabBarIcon: ({ color }) => <Ionicons name='ios-people' size={34} color={color} />,
+				}}
+			/>
+			<BottomTabs.Screen
+				name='Profile'
+				component={ProfileStack}
+				options={{
+					tabBarLabel: 'Profile',
+					tabBarIcon: ({ color }) => <Octicons name='person' size={28} color={color} />,
 				}}
 			/>
 			<BottomTabs.Screen
@@ -54,6 +56,15 @@ export const MainNavigator = () => {
 					tabBarIcon: ({ color }) => <Octicons name='calendar' size={26} color={color} />,
 				}}
 			/>
+
+			<BottomTabs.Screen
+				name='Import'
+				component={CalendarStack}
+				options={{
+					tabBarLabel: 'Import',
+					tabBarIcon: ({ color }) => <FontAwesome5 name='file-import' size={24} color='black' />,
+				}}
+			/>
 		</BottomTabs.Navigator>
 	);
-}
+};
