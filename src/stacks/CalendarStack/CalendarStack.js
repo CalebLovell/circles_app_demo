@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderRight } from '../../HeaderRight';
+import { HeaderRight } from '../../core/HeaderRight';
 import { CalendarScreen } from './screens/CalendarScreen';
 
 import { createStackNavigator } from '@react-navigation/stack';

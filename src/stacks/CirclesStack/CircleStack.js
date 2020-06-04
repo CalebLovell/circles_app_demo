@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderRight } from '../../HeaderRight';
+import { HeaderRight } from '../../core/HeaderRight';
 import { CirclesScreen } from './screens/CirclesScreen';
 import { CircleScreen } from '../SharedScreens/CircleScreen';
 import { ConnectionScreen } from '../SharedScreens/ConnectionScreen';

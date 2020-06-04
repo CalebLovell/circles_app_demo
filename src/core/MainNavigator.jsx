@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { CirclesStack } from './stacks/CirclesStack/CircleStack';
-import { CalendarStack } from './stacks/CalendarStack/CalendarStack';
-import { ConnectionsStack } from './stacks/ConnectionsStack/ConnectionsStack';
-import { ProfileStack } from './stacks/ProfileStack/ProfileStack';
-import { DeviceContext } from './providers/DeviceProvider';
+import { CirclesStack } from '../stacks/CirclesStack/CircleStack';
+import { CalendarStack } from '../stacks/CalendarStack/CalendarStack';
+import { ConnectionsStack } from '../stacks/ConnectionsStack/ConnectionsStack';
+import { ProfileStack } from '../stacks/ProfileStack/ProfileStack';
+import { DeviceContext } from '../providers/DeviceProvider';
 
 import { Octicons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
